@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">SaSoHan</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_sarang">사랑해</string>
+    <string name="title_sojung">소중해</string>
+    <string name="title_giuk">기억해</string>
+
 </resources>
