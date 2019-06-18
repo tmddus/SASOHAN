@@ -31,7 +31,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1" />
             <ImageButton
-                android:id="@+id/btn_add"
+                android:id="@+id/btn_gowrite"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:src="@drawable/plus_sign"
@@ -39,11 +39,9 @@
         </LinearLayout>
 
         <ListView
+            android:id="@+id/listview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-        </ListView>
+            android:layout_height="wrap_content"/>
 
 
     </LinearLayout>

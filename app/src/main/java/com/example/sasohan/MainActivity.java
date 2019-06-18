@@ -1,13 +1,9 @@
 package com.example.sasohan;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -83,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case 1:
                 // '프래그먼트1' 호출
-                Fragment1 fragment1 = new Fragment1();
+                ListActivity fragment1 = new ListActivity();
                 transaction.replace(R.id.fragment_container, fragment1);
                 transaction.commit();
                 break;

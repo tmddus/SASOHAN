@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="Fragment1">
+    tools:context=".ListActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -105,6 +105,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="25dp">
             <Button
+                android:id="@+id/btn_add"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="추가하기"
