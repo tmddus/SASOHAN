@@ -20,4 +20,6 @@ public class FragDefault extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.frag_default, container, false);
     }
+
+
 }
