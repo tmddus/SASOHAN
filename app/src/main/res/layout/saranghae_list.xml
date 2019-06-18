@@ -20,7 +20,7 @@
             android:orientation="horizontal">
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:text="하고싶어도 하지 못했던말,\n 사소하지만 중요한 나의 일기를 적어보세요"
                 android:textColor="@color/colorPrimary"
                 android:textStyle="bold"
@@ -34,6 +34,7 @@
                 android:id="@+id/btn_gowrite"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:gravity="center_vertical"
                 android:src="@drawable/plus_sign"
                 android:background="@android:color/transparent"/>
         </LinearLayout>
