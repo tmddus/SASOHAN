@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
+    private final int FRAGMENT = 0;
     private final int FRAGMENT1 = 1;
     private final int FRAGMENT2 = 2;
     private final int FRAGMENT3 = 3;
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tbt_tab3.setOnClickListener(this);
 
         // 임의로 액티비티 호출 시점에 어느 프레그먼트를 프레임레이아웃에 띄울 것인지를 정함
-        callFragment(FRAGMENT1);
+        callFragment(FRAGMENT);
 
 
     }
@@ -74,6 +75,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
         switch (frament_no){
+            case 0:
+                // '프래그먼트1' 호출
+                FragDefault dfragment = new FragDefault();
+                transaction.replace(R.id.fragment_container, dfragment);
+                transaction.commit();
+                break;
             case 1:
                 // '프래그먼트1' 호출
                 Fragment1 fragment1 = new Fragment1();
