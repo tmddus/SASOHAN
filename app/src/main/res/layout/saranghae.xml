@@ -22,6 +22,7 @@
                 android:textSize="18sp"
                 android:layout_marginTop="14dp"
                 android:textColor="#ff0060"
+                android:focusable="true"
                 />
             <EditText
                 android:layout_width="match_parent"
@@ -67,6 +68,7 @@
                 android:layout_height="39dp"
                 android:layout_marginTop="10dp"
                 app:theme="@style/EditTextStyle"
+
             >
 
             </Spinner>
@@ -76,7 +78,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="25dp">
             <!--<view-->
@@ -86,12 +87,14 @@
                 <!--/>-->
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="250dp"
                 app:theme="@style/EditTextStyle"
                 android:hint="내용을 입력하세요"
                 android:gravity="top"
                 android:layout_marginTop="20dp"
-                android:background="@null"/>
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/edittext"
+                />
         </LinearLayout>
 
         <LinearLayout
