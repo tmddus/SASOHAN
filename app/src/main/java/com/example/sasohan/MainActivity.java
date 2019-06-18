@@ -24,7 +24,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+//        setTheme(android.R.style.Theme_NoTitleBar_Fullscreen);
+        
         // 위젯에 대한 참조
         ibt_tab1 = (ImageButton)findViewById(R.id.ibt_tab1);
         ibt_tab2 = (ImageButton)findViewById(R.id.ibt_tab2);
