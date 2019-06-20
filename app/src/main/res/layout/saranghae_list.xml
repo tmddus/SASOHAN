@@ -38,11 +38,17 @@
                 android:src="@drawable/plus_sign"
                 android:background="@android:color/transparent"/>
         </LinearLayout>
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:layout_above="@id/bottom_bar"
+            android:background="@drawable/shadow"/>
         <ListView
             android:id="@+id/listview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
+
+
 
 
     </LinearLayout>

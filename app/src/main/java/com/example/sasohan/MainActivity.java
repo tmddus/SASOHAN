@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case 2:
                 // '프래그먼트2' 호출
-                GallayActivity fragment2 = new GallayActivity();
+                GallayFragment fragment2 = new GallayFragment();
                 transaction.replace(R.id.fragment_container, fragment2);
                 transaction.commit();
                 break;
