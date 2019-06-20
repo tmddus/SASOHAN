@@ -65,8 +65,6 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO diary (token, title, content, writedate, receiver, issended, isprivate, receivedate) values(" + token +
                     ", " + title + ", " + content + ", date('now')" + receiver + "," + isSend + "," +  isPrivate + ");"
                 );
-
-
     }
 
 
