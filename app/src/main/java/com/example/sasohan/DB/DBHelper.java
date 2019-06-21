@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.sasohan.Model.DiaryModel;
 import com.example.sasohan.Model.FamilyModel;
 import com.example.sasohan.Model.giukDateModel;
 
@@ -60,6 +61,10 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) { }
 
+
+
+    /*-------일기 관련 --------*/
+
     public void DiaryInsert(String title, String content, String receiver, int isSend, int isPrivate){ // 일기 저장
         SQLiteDatabase db = getWritableDatabase();
         String token = rndString(10);
@@ -73,8 +78,30 @@ public class DBHelper extends SQLiteOpenHelper {
                 );
     }
 
+    public ArrayList<DiaryModel> getAllDiary(){ // 다이어리 전부 가져오기
 
-    public void DateInsert(long date, String name){
+        ArrayList<DiaryModel> arr = new ArrayList<>();
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor cursor = db.rawQuery("  SELECT * FROM diary", null);
+        boolean isSend = cursor.getInt(5) > 0;
+        boolean isPrivate = cursor.getInt(6) > 0;
+
+        while (cursor.moveToNext()){
+            arr.add(new DiaryModel(cursor.getString(0), cursor.getString(1), cursor.getString(2),
+                    cursor.getLong(3), cursor.getString(4), isSend, isPrivate, cursor.getLong(7)
+                    ));
+        }
+        return arr;
+
+    }
+
+    /*-------일기 관련 끝--------*/
+
+
+
+    /*-------기념일 관련--------*/
+
+    public void DateInsert(long date, String name){ // 기념일 저장하기
 
         SQLiteDatabase db = getWritableDatabase();
         String token = rndString(10);
@@ -85,17 +112,38 @@ public class DBHelper extends SQLiteOpenHelper {
         );
     }
 
+    public ArrayList<giukDateModel> getAllGiukDate(){ // 기념일 모두 가져오기
+        ArrayList<giukDateModel> arr = new ArrayList<>();
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor cursor = db.rawQuery("  SELECT * FROM giukDate", null);
+        while (cursor.moveToNext()){
+            arr.add(new giukDateModel(cursor.getLong(0), cursor.getString(1)));
+        }
+        return arr;
+    }
+
+    public ArrayList<String> getGiukDate(long date){ // 날짜에 해당하는 기념일 이름 가져오기
+        ArrayList<String> arr = new ArrayList<>();
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT name FROM giukDate WHERE date = " + date, null);
+
+        while (cursor.moveToNext()){
+            arr.add(cursor.getString(0));
+        }
+        return arr;
+    }
+
+    /*-------기념일 관련 끝 --------*/
+
+
+
+
+
+    /*-------연락처 관련 --------*/
     public void familyInsert(String name, String phoneNum){ // 연락처 저장
         SQLiteDatabase db = getWritableDatabase();
         db.execSQL("INSERT INTO family (date, name) values(" +
                 name + "," + phoneNum + ");"
-        );
-    }
-
-    public void imageInsert(byte[] img){
-        SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("INSERT INTO gallary (date, image) values(" +
-                rndString(10) + "," + img + ");"
         );
     }
 
@@ -124,28 +172,21 @@ public class DBHelper extends SQLiteOpenHelper {
         return result; // 행이 존재하지 않으면 error 를 반환
     }
 
-    public ArrayList<giukDateModel> getAllGiukDate(){
-        ArrayList<giukDateModel> arr = new ArrayList<>();
+    /*-------연락처 관련 끝 --------*/
+
+
+
+
+    /*-------이미지 관련 --------*/
+
+    public void imageInsert(byte[] img){
         SQLiteDatabase db = getWritableDatabase();
-        Cursor cursor = db.rawQuery("  SELECT * FROM giukDate", null);
-        while (cursor.moveToNext()){
-            arr.add(new giukDateModel(cursor.getLong(0), cursor.getString(1)));
-        }
-        return arr;
+        db.execSQL("INSERT INTO gallary (date, image) values(" +
+                rndString(10) + "," + img + ");"
+        );
     }
 
-    public ArrayList<String> getGiukDate(long date){
-        ArrayList<String> arr = new ArrayList<>();
-        SQLiteDatabase db = getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT name FROM giukDate WHERE date = " + date, null);
-
-        while (cursor.moveToNext()){
-            arr.add(cursor.getString(0));
-        }
-        return arr;
-    }
-
-    public ArrayList<byte[]> getImage(){
+    public ArrayList<byte[]> getImage(){ // 이미지 모두 가져오기
         ArrayList<byte[]> arr = new ArrayList<>();
         SQLiteDatabase db = getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT image FROM gallary", null);
@@ -157,6 +198,8 @@ public class DBHelper extends SQLiteOpenHelper {
         return arr;
 
     }
+
+    /*-------이미지 관련 끝--------*/
 
 
 
