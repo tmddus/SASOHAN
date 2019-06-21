@@ -141,7 +141,6 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/split-apk" />
 >>>>>>> ece4208e916eaf1e618dab1fd4b647c17e3ca6f4
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/symbols" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/transforms" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/validate_signing_config" />
       <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
@@ -165,7 +164,10 @@
     <orderEntry type="library" name="Gradle: android.arch.lifecycle:runtime:1.1.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-compat:28.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:cardview-v7:28.0.0@aar" level="project" />
+<<<<<<< HEAD
     <orderEntry type="library" name="Gradle: com.github.prolificinteractive:material-calendarview:1.6.0@aar" level="project" />
+=======
+>>>>>>> c2083cc8c280a2d0cdbf4012a35cd6c83faca6e5
     <orderEntry type="library" scope="TEST" name="Gradle: javax.inject:javax.inject:1@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-vector-drawable:28.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-core-utils:28.0.0@aar" level="project" />
@@ -198,5 +200,9 @@
     <orderEntry type="library" name="Gradle: com.android.support:coordinatorlayout:28.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:customview:28.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:swiperefreshlayout:28.0.0@aar" level="project" />
+<<<<<<< HEAD
+=======
+    <orderEntry type="library" name="Gradle: gun0912.ted:tedpermission:2.1.0@aar" level="project" />
+>>>>>>> c2083cc8c280a2d0cdbf4012a35cd6c83faca6e5
   </component>
 </module>

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GallayActivity">
+    tools:context=".GallayFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,7 +41,11 @@
                 android:src="@drawable/plus_sign"
                 android:background="@android:color/transparent"/>
         </LinearLayout>
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:layout_above="@id/bottom_bar"
+            android:background="@drawable/shadow"/>
         <GridView
             android:id="@+id/gridview"
             android:layout_width="match_parent"

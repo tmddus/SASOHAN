@@ -2,14 +2,13 @@ package com.example.sasohan;
 
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -17,18 +16,16 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import static android.app.Activity.RESULT_OK;
+public class ListFragment extends Fragment  {
 
-public class FragDefault extends Fragment  {
-
-    private ImageButton btn_gophone;
+    private ImageButton btn_gowrite;
     private ArrayList<String> list = new ArrayList<>();
     View view;
     Intent intent;
-    String name,number;
+    String title,contents;
     ListView listview ;
     ListViewAdapter adapter;
-    public FragDefault() {}
+    public ListFragment() {}
 
 
     @Override
@@ -36,10 +33,8 @@ public class FragDefault extends Fragment  {
                              Bundle savedInstanceState) {
 
 
-        view = inflater.inflate(R.layout.frag_default, container, false);
+        view = inflater.inflate(R.layout.saranghae_list, container, false);
 
-
-        출처: https://blog.opid.kr/250 [opid's document]
 
         //글 목록
 
@@ -52,42 +47,47 @@ public class FragDefault extends Fragment  {
 
         //db에서 (제목,날짜) 가져오기
         // 임시데이터
-        adapter.addItem("엄마", "010-1234-5678") ;
-        adapter.addItem("아빠", "010-9876-5432") ;
-        adapter.addItem("언니", "010-2345-6789") ;
-        adapter.addItem("오빠", "010-8765-4321") ;
+        adapter.addItem("사랑하는 우리엄마", "2019/06/10") ;
+        adapter.addItem("오늘 가족에게 속상했던 일들", "2019/06/02") ;
+        adapter.addItem("언니 앞으로는 싸우지 말자", "2019/05/11") ;
+        adapter.addItem("할머니 아프지 마세요", "2019/05/09") ;
+        adapter.addItem("힘들었을 나에게, 수고했어", "2019/05/01") ;
         adapter.notifyDataSetChanged();
 
 
+        // 위에서 생성한 listview에 클릭 이벤트 핸들러 정의.
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView parent, View v, int position, long id) {
+                // get item
+                ListViewItem item = (ListViewItem) parent.getItemAtPosition(position) ;
+
+                String titleStr = item.getTitle() ;
+                String descStr = item.getDesc() ;
+
+            }
+        }) ;
+
         //글쓰기 버튼
-        btn_gophone = view.findViewById(R.id.btn_gophone);
-        btn_gophone.setOnClickListener(new View.OnClickListener() {
+        btn_gowrite = view.findViewById(R.id.btn_gowrite);
+        btn_gowrite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_PICK);
-                intent.setData(ContactsContract.CommonDataKinds.Phone.CONTENT_URI);
-                startActivityForResult(intent, 0);
-                adapter.addItem(name, number) ;
+                intent = new Intent(getActivity(), WriteActibity.class);
+                startActivity(intent);
+
+                refresh();
             }
         });
 
+//        ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, list);
+//        for (int i = 0; i < 20; i++) {
+//            list.add("item " + i); //임시데이터
+//        }
+//        ListView listview = (ListView) view.findViewById(R.id.listview) ;
+//        listview.setAdapter(adapter);
 
         return view;
-    }
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(resultCode == RESULT_OK)
-        {
-            Cursor cursor = getActivity().getContentResolver().query(intent.getData(),
-                    new String[]{ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME,
-                            ContactsContract.CommonDataKinds.Phone.NUMBER}, null, null, null);
-            cursor.moveToFirst();
-            name = cursor.getString(0);        //0은 이름을 얻어옵니다.
-            number = cursor.getString(1);    //1은 번호를 받아옵니다.
-            adapter.addItem(name,number);
-            cursor.close();
-        }
-        super.onActivityResult(requestCode, resultCode, data);
     }
 
     public static class ListViewItem {
@@ -133,7 +133,7 @@ public class FragDefault extends Fragment  {
             // "listview_item" Layout을 inflate하여 convertView 참조 획득.
             if (convertView == null) {
                 LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                convertView = inflater.inflate(R.layout.call_list_item, parent, false);
+                convertView = inflater.inflate(R.layout.listview_item, parent, false);
             }
 
             // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
@@ -175,6 +175,7 @@ public class FragDefault extends Fragment  {
     }
     //새로고침(변경사항반영)
     private void refresh(){
+        adapter.addItem(title,contents);
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.detach(this).attach(this).commit();
     }

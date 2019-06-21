@@ -1,11 +1,12 @@
 package com.example.sasohan;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MenuItem;
+import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -17,37 +18,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private final int FRAGMENT2 = 2;
     private final int FRAGMENT3 = 3;
 
+    private  TextView btn_Home;
     private ImageButton ibt_tab1,ibt_tab2,ibt_tab3;
     private TextView tbt_tab1,tbt_tab2,tbt_tab3;
-
-    private TextView mTextMessage;
-
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.navigation_sarang:
-                    mTextMessage.setText(R.string.title_sarang);
-                    return true;
-                case R.id.navigation_sojung:
-                    mTextMessage.setText(R.string.title_sojung);
-                    return true;
-                case R.id.navigation_giuk:
-                    mTextMessage.setText(R.string.title_giuk);
-                    return true;
-            }
-            return false;
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //        setTheme(android.R.style.Theme_NoTitleBar_Fullscreen);
-        
+
+        btn_Home = findViewById(R.id.btnHome);
+        btn_Home.setOnClickListener(this);
+
         // 위젯에 대한 참조
         ibt_tab1 = (ImageButton)findViewById(R.id.ibt_tab1);
         ibt_tab2 = (ImageButton)findViewById(R.id.ibt_tab2);
@@ -68,15 +51,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // 임의로 액티비티 호출 시점에 어느 프레그먼트를 프레임레이아웃에 띄울 것인지를 정함
         callFragment(FRAGMENT);
 
-        mTextMessage = findViewById(R.id.message);
-        BottomNavigationView navigation =findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        ActionBar actionBar = getSupportActionBar();
+
+        // Custom Actionbar를 사용하기 위해 CustomEnabled을 true 시키고 필요 없는 것은 false 시킨다
+        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(false);            //액션바 아이콘을 업 네비게이션 형태로 표시합니다.
+        actionBar.setDisplayShowTitleEnabled(false);        //액션바에 표시되는 제목의 표시유무를 설정합니다.
+        actionBar.setDisplayShowHomeEnabled(false);            //홈 아이콘을 숨김처리합니다.
+
+
+        //layout을 가지고 와서 actionbar에 포팅을 시킵니다.
+        LayoutInflater inflater = (LayoutInflater)getSystemService(LAYOUT_INFLATER_SERVICE);
+        View actionbar = inflater.inflate(R.layout.custom_title, null);
+
+        actionBar.setCustomView(actionbar);
+
+        //액션바 양쪽 공백 없애기
+        Toolbar parent = (Toolbar)actionbar.getParent();
+        parent.setContentInsetsAbsolute(0,0);
+
+        return true;
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
+            case R.id.btnHome:
+                // '홈' 클릭 시 '프래그먼트' 호출
+                callFragment(FRAGMENT);
+                break;
             case R.id.ibt_tab1 : case R.id.txt_tab1:
                 // '버튼1' 클릭 시 '프래그먼트1' 호출
                 callFragment(FRAGMENT1);
@@ -107,14 +114,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case 1:
                 // '프래그먼트1' 호출
-                ListActivity fragment1 = new ListActivity();
+                ListFragment fragment1 = new ListFragment();
                 transaction.replace(R.id.fragment_container, fragment1);
                 transaction.commit();
                 break;
 
             case 2:
                 // '프래그먼트2' 호출
-                GallayActivity fragment2 = new GallayActivity();
+                GallayFragment fragment2 = new GallayFragment();
                 transaction.replace(R.id.fragment_container, fragment2);
                 transaction.commit();
                 break;
@@ -140,7 +147,3 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //    }
 
 }
-
-
-
-

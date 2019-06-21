@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ListActivity">
+    tools:context=".ListFragment">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,6 +25,7 @@
                 android:focusable="true"
                 />
             <EditText
+                android:id="@+id/edit_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -89,6 +90,7 @@
             <EditText
                 android:padding="15dp"
                 android:textColorHint="@color/lightMain"
+                android:id="@+id/edit_content"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 app:theme="@style/EditTextStyle"
