@@ -22,7 +22,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:text="하고싶어도 하지 못했던말,\n 사소하지만 중요한 나의 일기를 적어보세요"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/main"
                 android:textStyle="bold"
                 android:textSize="@dimen/title_txt_size"
                 />
