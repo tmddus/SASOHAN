@@ -1,6 +1,14 @@
 <resources>
+<<<<<<< HEAD
     <string name="app_name">사소한</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+=======
+    <string name="app_name">SaSoHan</string>
+    <string name="title_sarang">사랑해</string>
+    <string name="title_sojung">소중해</string>
+    <string name="title_giuk">기억해</string>
+
+>>>>>>> ece4208e916eaf1e618dab1fd4b647c17e3ca6f4
 </resources>

@@ -1,8 +1,11 @@
 package com.example.sasohan;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -16,6 +19,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private ImageButton ibt_tab1,ibt_tab2,ibt_tab3;
     private TextView tbt_tab1,tbt_tab2,tbt_tab3;
+
+    private TextView mTextMessage;
+
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.navigation_sarang:
+                    mTextMessage.setText(R.string.title_sarang);
+                    return true;
+                case R.id.navigation_sojung:
+                    mTextMessage.setText(R.string.title_sojung);
+                    return true;
+                case R.id.navigation_giuk:
+                    mTextMessage.setText(R.string.title_giuk);
+                    return true;
+            }
+            return false;
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +68,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // 임의로 액티비티 호출 시점에 어느 프레그먼트를 프레임레이아웃에 띄울 것인지를 정함
         callFragment(FRAGMENT);
 
+        mTextMessage = findViewById(R.id.message);
+        BottomNavigationView navigation =findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
     }
 
