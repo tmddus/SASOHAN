@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="Fragment3"
+    android:paddingRight="@dimen/leftRight_margin"
+    android:paddingLeft="@dimen/leftRight_margin"
+    android:paddingTop="@dimen/top_margin"
+    android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="잊어서는 안 될 날들을 기록하세요"
+            android:textColor="@color/main"
+            android:textStyle="bold"
+            android:textSize="@dimen/title_txt_size"
+            />
+
+        <View
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/main"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"/>
+
+        <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:mcv_arrowColor="@color/main"
+            app:mcv_dateTextAppearance="@style/CalendarHeader"
+            app:mcv_headerTextAppearance="@style/CalendarHeader"
+            app:mcv_leftArrowMask="@drawable/left_arrow"
+            app:mcv_rightArrowMask="@drawable/right_arrow"
+            app:mcv_weekDayTextAppearance="@style/CalendarHeader" />
+        
+        <RelativeLayout
+            android:background="@drawable/date_bg"
+            android:layout_width="match_parent"
+            android:layout_height="90dp">
+                <ImageView
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/plus_sign"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp" />
+
+                <TextView
+                    android:textSize="@dimen/commonContentTxt"
+                    android:layout_margin="10dp"
+                    android:textColor="@color/main"
+                    android:text="일정이 없습니다"
+                    android:id="@+id/today_rememberDay_frag3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+
+</LinearLayout>
