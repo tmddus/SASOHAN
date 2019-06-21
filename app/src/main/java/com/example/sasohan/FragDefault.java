@@ -3,17 +3,13 @@ package com.example.sasohan;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.drawable.Drawable;
 import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -115,7 +111,7 @@ public class FragDefault extends Fragment  {
 
     public class ListViewAdapter extends BaseAdapter {
         // Adapter에 추가된 데이터를 저장하기 위한 ArrayList
-        private ArrayList<ListActivity.ListViewItem> listViewItemList = new ArrayList<ListActivity.ListViewItem>();
+        private ArrayList<ListFragment.ListViewItem> listViewItemList = new ArrayList<ListFragment.ListViewItem>();
 
         // ListViewAdapter의 생성자
         public ListViewAdapter() {
@@ -145,7 +141,7 @@ public class FragDefault extends Fragment  {
             TextView descTextView = (TextView) convertView.findViewById(R.id.textDate); //날짜
 
             // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
-            ListActivity.ListViewItem listViewItem = listViewItemList.get(position);
+            ListFragment.ListViewItem listViewItem = listViewItemList.get(position);
 
             // 아이템 내 각 위젯에 데이터 반영
             titleTextView.setText(listViewItem.getTitle());
@@ -168,7 +164,7 @@ public class FragDefault extends Fragment  {
 
         // 아이템 데이터 추가를 위한 함수. 개발자가 원하는대로 작성 가능.
         public void addItem(String title, String desc) {
-            ListActivity.ListViewItem item = new ListActivity.ListViewItem();
+            ListFragment.ListViewItem item = new ListFragment.ListViewItem();
 
             item.setTitle(title);
             item.setDesc(desc);

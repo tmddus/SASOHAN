@@ -8,12 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
-import java.io.Console;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -118,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case 1:
                 // '프래그먼트1' 호출
-                ListActivity fragment1 = new ListActivity();
+                ListFragment fragment1 = new ListFragment();
                 transaction.replace(R.id.fragment_container, fragment1);
                 transaction.commit();
                 break;

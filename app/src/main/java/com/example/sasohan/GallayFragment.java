@@ -47,8 +47,7 @@ public class GallayFragment extends Fragment {
         imgarray.add( R.drawable.c);imgarray.add( R.drawable.e);imgarray.add( R.drawable.q);imgarray.add( R.drawable.e);imgarray.add( R.drawable.j);imgarray.add( R.drawable.q);imgarray.add( R.drawable.c);imgarray.add( R.drawable.e);
 
         // 커스텀 아답타 생성
-        ImageAdapter adapter = new ImageAdapter (getContext(),
-                R.layout.row, imgarray);    // 데이터
+        ImageAdapter adapter = new ImageAdapter (getContext());    // 데이터
 
         GridView gv = view.findViewById(R.id.gridview);
         gv.setAdapter(adapter);  // 커스텀 아답타를 GridView 에 적용
@@ -118,86 +117,45 @@ public class GallayFragment extends Fragment {
             }
         }
     }
-//    public class ImageAdapter extends BaseAdapter {
-//        private Context mContext;
-//
-//        public ImageAdapter(Context c) {
-//            mContext = c;
-//        }
-//
-//        public int getCount() {
-//            return imgarray.size();
-//        }
-//
-//        public Object getItem(int position) {
-//            return imgarray.get(position);
-//        }
-//
-//        public long getItemId(int position) {
-//            return position;
-//        }
-//
-//        // create a new ImageView for each item referenced by the Adapter
-//        public View getView(int position, View convertView, ViewGroup parent) {
-//
-////            int rowWidth = (mMetrics.widthPixels) / 3;
-//
-//            ImageView imageView;
-//            if (convertView == null) {
-//                imageView = new ImageView(mContext);
-//                imageView.setLayoutParams(new GridView.LayoutParams(400,400));
-//                imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-//                imageView.setPadding(1, 1, 1, 1);
-//            } else {
-//                imageView = (ImageView) convertView;
-//            }
-//            imageView.setImageResource(imgarray.get(position));
-//            return imageView;
-//        }
-//    }
+    public class ImageAdapter extends BaseAdapter {
+        private Context mContext;
 
-
-
-    class ImageAdapter extends BaseAdapter {
-        Context context;
-        int layout;
-        ArrayList<Integer> img;
-        LayoutInflater inf;
-
-        public ImageAdapter(Context context, int layout, ArrayList<Integer> img) {
-            this.context = context;
-            this.layout = layout;
-            this.img = img;
-            inf = (LayoutInflater) context.getSystemService
-                    (Context.LAYOUT_INFLATER_SERVICE);
+        public ImageAdapter(Context c) {
+            mContext = c;
         }
 
-        @Override
         public int getCount() {
-            return img.size();
+            return imgarray.size();
         }
 
-        @Override
         public Object getItem(int position) {
-            return img.get(position);
+            return imgarray.get(position);
         }
 
-        @Override
         public long getItemId(int position) {
             return position;
         }
 
-        @Override
+        // create a new ImageView for each item referenced by the Adapter
         public View getView(int position, View convertView, ViewGroup parent) {
-            // 보여줄 해당행의 row xml 파일의 데이터를 셋팅해서 뷰를 완성하는 작업
+
+//            int rowWidth = (mMetrics.widthPixels) / 3;
+
+            ImageView imageView;
             if (convertView == null) {
-                convertView = inf.inflate(layout, null);
+                imageView = new ImageView(mContext);
+                imageView.setLayoutParams(new GridView.LayoutParams(400,400));
+                imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                imageView.setPadding(1, 1, 1, 1);
+            } else {
+                imageView = (ImageView) convertView;
             }
-
-            ImageView iv = (ImageView)convertView.findViewById(R.id.imageView1);
-            iv.setImageResource(img.get(position));
-            return convertView;
-
+            imageView.setImageResource(imgarray.get(position));
+            return imageView;
         }
     }
+
+
+
+
 }
