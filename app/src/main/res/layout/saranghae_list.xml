@@ -42,13 +42,12 @@
             android:layout_width="match_parent"
             android:layout_height="4dp"
             android:layout_above="@id/bottom_bar"
-            android:background="@drawable/shadow"/>
+            android:background="@drawable/shadow"
+            android:outlineAmbientShadowColor="@color/colorPrimary"/>
         <ListView
             android:id="@+id/listview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-
-
 
 
     </LinearLayout>

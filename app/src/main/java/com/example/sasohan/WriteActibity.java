@@ -34,14 +34,8 @@ public class WriteActibity extends AppCompatActivity {
 
 
                 //db삽입성공시
-                intent = getIntent();
-                title = ed_title.getText().toString();
-                contents = ed_contents.getText().toString();
-                intent.putExtra("title",title);
-                intent.putExtra("contents",contents);
                 Toast toast = Toast.makeText(getApplicationContext(),"일기가 등록되었습니다.",Toast.LENGTH_SHORT);
                 toast.show();
-                setResult(Activity.RESULT_OK, intent);
                 finish();
             }
         });

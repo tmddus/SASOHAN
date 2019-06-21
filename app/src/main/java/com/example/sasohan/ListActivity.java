@@ -47,11 +47,10 @@ public class ListActivity extends Fragment  {
         listview = (ListView) view.findViewById(R.id.listview);
         listview.setAdapter(adapter);
 
-        // 첫 번째 아이템 추가.
-        adapter.addItem("사랑하는 우리엄마", "2019/06/10") ; //db에서 (제목,날짜) 가져오기
-        // 두 번째 아이템 추가.
+        //db에서 (제목,날짜) 가져오기
+        // 임시데이터
+        adapter.addItem("사랑하는 우리엄마", "2019/06/10") ;
         adapter.addItem("오늘 가족에게 속상했던 일들", "2019/06/02") ;
-        // 세 번째 아이템 추가.
         adapter.addItem("언니 앞으로는 싸우지 말자", "2019/05/11") ;
         adapter.addItem("할머니 아프지 마세요", "2019/05/09") ;
         adapter.addItem("힘들었을 나에게, 수고했어", "2019/05/01") ;
