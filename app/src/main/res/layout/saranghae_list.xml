@@ -9,9 +9,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="25dp">
+        android:layout_marginTop="@dimen/top_margin"
+        android:layout_marginLeft="@dimen/leftRight_margin"
+        android:layout_marginRight="@dimen/leftRight_margin">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,7 +24,7 @@
                 android:text="하고싶어도 하지 못했던말,\n 사소하지만 중요한 나의 일기를 적어보세요"
                 android:textColor="@color/colorPrimary"
                 android:textStyle="bold"
-                android:textSize="16sp"
+                android:textSize="@dimen/title_txt_size"
                 />
             <View
                 android:layout_width="0dp"

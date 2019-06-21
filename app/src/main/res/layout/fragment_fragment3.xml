@@ -1,17 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="Fragment3">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="Fragment3"
+    android:paddingRight="@dimen/leftRight_margin"
+    android:paddingLeft="@dimen/leftRight_margin"
+    android:paddingTop="@dimen/top_margin"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="프래그먼트 3" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="잊어서는 안 될 날들을 기록하세요"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textSize="@dimen/title_txt_size"
+            />
+
+        <View
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+            app:mcv_arrowColor="@color/colorPrimary"
+            app:mcv_leftArrowMask="@drawable/left_arrow"
+            app:mcv_rightArrowMask="@drawable/right_arrow"
+            app:mcv_tileWidth="match_parent"
+            app:mcv_tileHeight="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
 
-
-</FrameLayout>
+</LinearLayout>
