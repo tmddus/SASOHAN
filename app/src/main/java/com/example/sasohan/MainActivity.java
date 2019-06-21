@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 //        setTheme(android.R.style.Theme_NoTitleBar_Fullscreen);
 
-//        btn_Home = findViewById(R.id.btnHome);
-//        btn_Home.setOnClickListener(this);
+        btn_Home = findViewById(R.id.btnHome);
+        btn_Home.setOnClickListener(this);
 
         // 위젯에 대한 참조
         ibt_tab1 = (ImageButton)findViewById(R.id.ibt_tab1);
