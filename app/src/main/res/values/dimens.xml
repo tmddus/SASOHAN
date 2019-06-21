@@ -5,4 +5,5 @@
     <dimen name="title_txt_size">16dp</dimen>
     <dimen name="top_margin">16dp</dimen>
     <dimen name="leftRight_margin">15dp</dimen>
+    <dimen name="commonContentTxt">17sp</dimen>
 </resources>

@@ -20,19 +20,41 @@
             />
 
         <View
+            android:layout_marginBottom="5dp"
             android:layout_marginTop="10dp"
             android:background="@color/colorPrimary"
             android:layout_width="match_parent"
-            android:layout_height="1dp"/>
+            android:layout_height="2dp"/>
 
         <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             app:mcv_arrowColor="@color/colorPrimary"
+            app:mcv_dateTextAppearance="@style/CalendarHeader"
+            app:mcv_headerTextAppearance="@style/CalendarHeader"
             app:mcv_leftArrowMask="@drawable/left_arrow"
             app:mcv_rightArrowMask="@drawable/right_arrow"
-            app:mcv_tileWidth="match_parent"
-            app:mcv_tileHeight="match_parent"
+            app:mcv_weekDayTextAppearance="@style/CalendarHeader" />
+        
+        <RelativeLayout
+            android:background="@drawable/date_bg"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="90dp">
+                <ImageView
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/plus_sign"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp" />
+                <TextView
+                    android:textSize="@dimen/commonContentTxt"
+                    android:layout_margin="10dp"
+                    android:textColor="@color/colorPrimary"
+                    android:text="일정이 없습니다"
+                    android:id="@+id/today_rememberDay_frag3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+        </RelativeLayout>
 
 
 </LinearLayout>

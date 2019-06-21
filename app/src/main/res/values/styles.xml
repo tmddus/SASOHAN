@@ -12,4 +12,9 @@
     <style name="EditTextStyle" parent="Widget.AppCompat.EditText">
         <item name="colorControlNormal">@color/colorPrimary</item>
     </style>
+
+    <style name="CalendarHeader" parent="TextAppearance.MaterialCalendarWidget.Header">
+
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
 </resources>
