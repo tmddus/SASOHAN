@@ -16,6 +16,8 @@ import java.util.Random;
 
 public class DBHelper extends SQLiteOpenHelper {
     Context context;
+    public static final String tableName = "tbl";
+
 
     public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
@@ -74,7 +76,6 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         String token = rndString(10);
         Date today = new Date();
-
 
 
         db.execSQL("INSERT INTO diary (token, title, content, writedate, " +

@@ -1,5 +1,6 @@
 package com.example.sasohan;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
@@ -11,7 +12,12 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.sasohan.DB.DBHelper;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+
+    DBHelper helper;
+    SQLiteDatabase database;
 
     private final int FRAGMENT = 0;
     private final int FRAGMENT1 = 1;
@@ -50,6 +56,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // 임의로 액티비티 호출 시점에 어느 프레그먼트를 프레임레이아웃에 띄울 것인지를 정함
         callFragment(FRAGMENT);
+
+        helper = new DBHelper(MainActivity.this, DBHelper.tableName, null, 1);
+        database = helper.getWritableDatabase();
+
 
 
     }

@@ -8,33 +8,6 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:gravity="center_vertical"
-        android:background="@color/colorPrimary"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:text="사소한"
-            android:id="@+id/title"
-            android:textSize="20sp"
-            android:textColor="#fff"
-            android:gravity="center"
-            android:layout_marginLeft="17dp"
-            android:layout_width="match_parent"
-            android:layout_height="56dp" />
-
-        <TextView
-            android:id="@+id/btnHome"
-            android:layout_alignParentRight="true"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:textColor="#fff"
-            android:gravity="center"
-            android:layout_marginLeft="17dp"
-            android:text="홈"/>
-    </RelativeLayout>
-
-
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
