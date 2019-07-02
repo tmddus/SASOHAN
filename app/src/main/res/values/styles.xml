@@ -6,17 +6,6 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="windowNoTitle">true</item>
-        <!--<item name="android:windowFullscreen">true</item>-->
     </style>
-    <style name="EditTextStyle" parent="Widget.AppCompat.EditText">
-        <item name="colorControlNormal">@color/main</item>
-    </style>
-
-    <style name="CalendarHeader" parent="TextAppearance.MaterialCalendarWidget.Header">
-
-        <item name="android:textColor">@color/main</item>
-    </style>
-
 
 </resources>
