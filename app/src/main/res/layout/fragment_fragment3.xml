@@ -37,6 +37,7 @@
             app:mcv_weekDayTextAppearance="@style/CalendarHeader" />
         
         <RelativeLayout
+            android:id="@+id/Relative_Board_frag3"
             android:background="@drawable/date_bg"
             android:layout_width="match_parent"
             android:layout_height="90dp">

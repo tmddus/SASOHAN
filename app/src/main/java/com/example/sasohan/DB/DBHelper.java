@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import com.example.sasohan.Model.DiaryModel;
 import com.example.sasohan.Model.FamilyModel;
@@ -14,9 +15,11 @@ import java.util.Date;
 import java.util.Random;
 
 public class DBHelper extends SQLiteOpenHelper {
+    Context context;
 
     public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
+        this.context = context;
     }
 
 
@@ -54,6 +57,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 "    'image' BLOB not null" + // 사진 binary 파일
                 ");"
         );
+
+        Toast.makeText(context, "table 생성 완료", Toast.LENGTH_SHORT).show();
 
     }
 
@@ -173,6 +178,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     /*-------연락처 관련 끝 --------*/
+
 
 
 
